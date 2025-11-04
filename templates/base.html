@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mini Shop</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+<header>
+  <a href="{{ url_for('home') }}">Mini Shop</a>
+  <nav>
+    {% if session.get('uid') %}
+      <a href="{{ url_for('logout') }}">Logout</a>
+    {% else %}
+      <a href="{{ url_for('login') }}">Login</a>
+      <a href="{{ url_for('register') }}">Register</a>
+    {% endif %}
+    <a href="{{ url_for('view_cart') }}">Cart</a>
+  </nav>
+</header>
+<main>{% block content %}{% endblock %}</main>
+<footer><small>© 2025 Mini Shop</small></footer>
+</body>
+</html>
