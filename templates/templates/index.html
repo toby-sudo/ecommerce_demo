@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Products</h1>
+<div class="grid">
+  {% for p in products %}
+  <div class="card">
+    <h3>{{ p[1] }}</h3>
+    <p>₹ {{ '%.2f'|format(p[2]) }}</p>
+    <a href="{{ url_for('add_to_cart', pid=p[0]) }}">Add to Cart</a>
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}
